@@ -1,0 +1,32 @@
+<h3>Create Pirate</h3>
+
+<form action="/pirates" method="post">
+  <div>
+    <label for="name">Pirate Name</label>
+    <input type="text" name="pirate[name]" id="name">
+  </div>
+
+  <div>
+    <label for="ship_1">Ship 1 Name</label>
+    <input type="text" name="ships[][name]" id="ship_1">
+  </div>
+  <div>
+    <label for="ship_2">Ship 2 Name</label>
+    <input type="text" name="ships[][name]" id="ship_2">
+  </div>
+  <input type="submit" value="Create Pirate">
+</form>
+
+<br>
+<% if @pirate %>
+<h3><%= @pirate.name %></h3>
+      
+
+<p>Ships</p>
+<ul>
+  <% @pirate.ships.each do |ship| %>
+    <li><%= ship.name %></li>
+  <% end %>
+</ul>
+
+<% end %>
